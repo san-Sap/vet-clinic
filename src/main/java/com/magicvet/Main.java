@@ -42,7 +42,9 @@ public class Main {
         System.out.println("Please provide a client details.");
         System.out.print("Email: ");
         String email = SCANNER.nextLine();
-       /* String firstName;
+        String firstName;
+        String lastName;
+
 
         if (!isEmailValid (email)) {
             System.out.println("Provided email is invalid.");
@@ -50,35 +52,25 @@ public class Main {
             System.out.print("First name: ");
             firstName = SCANNER.nextLine();
             if (!isNameValid (firstName)) {
-
-
-            Client client = buildClient(email);
-            System.out.println("New client: " + client.firstName + " " + client.lastName + "( " + client.email + ")");
+                System.out.println("Provided First name is invalid.");
+            } else {
+                System.out.print("Last name: ");
+                lastName = SCANNER.nextLine();
+                if (!isNameValid (lastName)) {
+                    System.out.println("Provided Last name is invalid.");
+                } else {
+                    Client client = buildClient(firstName, lastName, email);
+                    System.out.println("New client: " + client.firstName + " " + client.lastName + " ( " + client.email + " )");
+                }
+            }
         }
-
-*/
-
-
-
-
-        if (isEmailValid (email)) {
-            Client client = buildClient(email);
-            System.out.println("New client: " + client.firstName + " " + client.lastName + "( " + client.email + ")");
-        } else {
-            System.out.println("Provided email is invalid.");
-        }
-
     }
 
-     static Client buildClient(String email) {
+     static Client buildClient(String firstName, String lastName, String email) {
         Client client = new Client();
          client.email = email;
-
-         System.out.print("First name: ");
-         client.firstName = SCANNER.nextLine();
-
-         System.out.print("Last name: ");
-         client.lastName = SCANNER.nextLine();
+         client.firstName = firstName;
+         client.lastName = lastName;
 
          return client;
     }
