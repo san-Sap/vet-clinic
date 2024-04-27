@@ -1,5 +1,6 @@
 package main.java.com.magicvet.component;
 
+import main.java.com.magicvet.Main;
 import main.java.com.magicvet.model.Client;
 import main.java.com.magicvet.model.Pet;
 import main.java.com.magicvet.service.ClientService;
@@ -12,18 +13,40 @@ public class ApplicationRunner {
     private PetService petService = new PetService();
 
     public void run() {
-        if (Authenticator.auth()) {
-            Client client = clientService.registerNewClient();
+        if (!Authenticator.auth()) return;
+        Client client = clientService.registerNewClient();
 
-            if (client != null) {
-                System.out.println("Adding a new pet.");
-                Pet pet = petService.registerNewPet();
+        if (client == null) return;
+        System.out.print("Want you to add a pet now? (Y/N): ");
+        String input = Main.SCANNER.nextLine();
 
-                client.setPet(pet);
-                pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
-                System.out.println("Pet has been added.");
+        if (input.equalsIgnoreCase("Y")) {
+            System.out.println("Adding a new pet.");
+            Pet pet = petService.registerNewPet();
+
+            client.setPet(pet);
+            pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
+            System.out.println("Pet has been added.");
+        }
+
+
+
+           /* if (client != null) {
+                System.out.print("Want you to add a pet now? (Y/N): ");
+                String input = Main.SCANNER.nextLine();
+
+                if (input.equalsIgnoreCase("Y")) {
+                    System.out.println("Adding a new pet.");
+                    Pet pet = petService.registerNewPet();
+
+                    client.setPet(pet);
+                    pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
+                    System.out.println("Pet has been added.");
+                }
             }
 
-        }
+            */
+
+
     }
 }
