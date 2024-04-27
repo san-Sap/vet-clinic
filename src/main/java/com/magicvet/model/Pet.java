@@ -1,6 +1,35 @@
 package main.java.com.magicvet.model;
 
+import java.util.Objects;
+
 public class Pet {
+
+    @Override
+    public String toString() {
+        return "Pet {"
+                + "\n\tType = " + type
+                + ", Sex = " + sex
+                + ", Age = " + age
+                + ", Name = " + name
+                + "\n}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pet pet = (Pet) o;
+        return Objects.equals(type, pet.type)
+                && Objects.equals(sex, pet.sex)
+                && Objects.equals(age, pet.age)
+                && Objects.equals(name, pet.name)
+                && Objects.equals(ownerName, pet.ownerName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, sex, age, name, ownerName);
+    }
 
     private String type;
     private String sex;
