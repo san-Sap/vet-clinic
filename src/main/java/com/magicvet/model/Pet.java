@@ -1,8 +1,12 @@
 package main.java.com.magicvet.model;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public abstract class Pet {
+
+    private static final String AGE_PATTERN = "\\d+";
 
     @Override
     public String toString() {
@@ -55,7 +59,11 @@ public abstract class Pet {
         return age;
     }
     public void setAge(String age) {
-        this.age = age;
+        if (age.matches("\\d+")) {
+            this.age = age;
+        } else {
+            System.out.println("Pets age is invalid.");
+        }
     }
 
     public String getName() {
