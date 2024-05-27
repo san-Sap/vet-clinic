@@ -1,4 +1,6 @@
+/*
 package main.java.com.magicvet.comparator;
+
 
 import main.java.com.magicvet.model.Dog;
 
@@ -25,3 +27,4 @@ public class DogSizeComparator implements Comparator<Dog> {
 
 
 }
+ */
