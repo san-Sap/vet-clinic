@@ -16,7 +16,7 @@ public class DogSizeComparator implements Comparator<Dog> {
     private static int convertSize(String size) {
         return switch (size) {
             case Dog.XS -> 1;
-            case Dog.S -> 2;
+            case Dog.S -> 2;DogSizeComparator.java
             case Dog.M -> 3;
             case Dog.L -> 4;
             case Dog.XL -> 5;

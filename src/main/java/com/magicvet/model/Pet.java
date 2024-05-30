@@ -40,6 +40,7 @@ public abstract class Pet {
     private String age;
     private String name;
     private String ownerName;
+    private HealthStatus healthStatus;
 
     public String getType() {
         return type;
@@ -79,5 +80,36 @@ public abstract class Pet {
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
+
+
+    public HealthStatus getHealthStatus() {
+        return healthStatus;
+    }
+    public void setHealthStatus(HealthStatus healthStatus) {
+        this.healthStatus = healthStatus;
+    }
+
+
+    public enum HealthStatus {
+
+        BAD(1),
+        NotVeryGood(2),
+        GOOD(3),
+        UNKNOWN(0);
+
+        private final int value;
+
+        HealthStatus(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
+
+
+
 
 }

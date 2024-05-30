@@ -11,6 +11,10 @@ public class Dog extends Pet {
     public Dog(Size size) {
         this.size = size;
     }
+    public Dog(Size size, HealthStatus healthStatus) {
+        this.size = size;
+        this.setHealthStatus(healthStatus);
+    }
 
     @Override
     public String toString() {
